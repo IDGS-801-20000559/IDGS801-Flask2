@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{%block content%}
+<center>
+<div class="col-xs-6">
+    <!--Referencia los macros creados-->
+    <!--El guión bajo se usa en una clase para catalogarla como privada-->
+    {% from "_macros.html" import render_field %}
+    {% from "_macros.html" import render_field2 %}
+    <form action="" method="POST">
+        <div class="row control-group">
+            <div class="form-group">
+                <!--Para pintar campos de un formulario en base a un macro-->
+                {{render_field(form.numero)}}
+            </div>
+            <input type="submit" class="btn-success" value="Cargar Campos">
+        </div>
+    </form>
+    <form action="{{ url_for('calculos') }}" method="GET">
+        <div class="row control-group">
+            {% for i in range(0, num) %}
+            {{ render_field(form.campo)}}
+            {% endfor %}
+        </div>
+        <input type="submit" class="btn-primary" value="Calcular">
+    </form> 
+</div> 
+<div class="col-md-6">
+    
+</div>
+</center>
+{%endblock%}

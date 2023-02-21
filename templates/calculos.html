@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{%block content%}
+<div class="col-xs-6">
+    <!--Referencia los macros creados-->
+    <!--El guión bajo se usa en una clase para catalogarla como privada-->
+    <form action="" method="POST">
+        <div class="row control-group">
+            <div class="form-group">
+                <!--Para pintar campos de un formulario en base a un macro-->
+                <label>Promedio</label>
+                <input readonly="" value="{{prom}}">
+                <label>Numero Maximo</label>
+                <input readonly="" value="{{max}}">
+                <label>Numero Minimo</label>
+                <input readonly="" value="{{min}}">
+                <label>Numero Repetido</label>
+                <input readonly="" value="{{rep}}">
+            </div>
+        </div>
+    </form>
+</div>
+<div class="col-md-6">
+</div>
+{%endblock%}
