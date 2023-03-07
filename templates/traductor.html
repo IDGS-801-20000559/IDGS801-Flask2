@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{%block content%}
+<br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <!--Referencia los macros creados-->
+            <!--El guión bajo se usa en una clase para catalogarla como privada-->
+            {% from "_macros.html" import render_field %}
+            <form action="/Traductor" method="POST" novalidate>
+                <fieldset>
+                    <legend style="color: slategrey;"><b>Nuevo registro</b></legend>
+                    <div class="control-group">
+                        <div class="form-group">
+                            <!--Para pintar campos de un formulario en base a un macro-->
+                            {{render_field(form.ingles)}}
+                            {{render_field(form.espaniol)}}
+                        </div>
+                        <input type="submit" class="btn-success" value="Registrar">
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="col-sm">
+            <form action="/TraductorB" method="POST" novalidate>
+                <fieldset>
+                    <legend style="color: slategrey;"><b>Busqueda</b></legend>
+                    <div class="control-group">
+                        <div class="form-group">
+                            <label for="opcion">Escoge el idioma </label>
+                            <input type="radio" id="opcion1" name="grupo_opciones" value="opcion1" checked> Español
+                            <input type="radio" id="opcion2" name="grupo_opciones" value="opcion2"> Inglés
+                            <br><br>
+                            {{render_field(form.trad)}}
+                        </div>
+                        <input type="submit" class="btn-primary" value="Buscar">
+                    </div>
+                    <h3 class="text-{{res}}">{{word}}</h3>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+{%endblock%}

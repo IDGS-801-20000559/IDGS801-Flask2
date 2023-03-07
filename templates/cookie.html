@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{%block content%}
+<center>
+    <br><br>
+    <div class="col-xs-6">
+        <!--Referencia los macros creados-->
+        <!--El guión bajo se usa en una clase para catalogarla como privada-->
+        {% from "_macros.html" import render_field %}
+        <form action="" method="POST" novalidate>
+            {{form.csrf_token}}
+            <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+            <div class="row control-group">
+                <div class="form-group">
+                    <!--Para pintar campos de un formulario en base a un macro-->
+                    {{render_field(form.username)}}
+                    {{render_field(form.password)}}
+                </div>
+                <input type="submit" class="btn-success" value="Registrar">
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6">
+    </div>
+</center>
+{%endblock%}

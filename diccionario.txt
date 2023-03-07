@@ -1,0 +1,15 @@
+rojo red
+amarillo yellow
+azul blue
+naranja orange
+cafe brown
+verde green
+correr run
+noche nigth
+coche car
+botón button
+kilometro kilometer
+inglés english
+español spanish
+velocidad speed
+pelota ball
